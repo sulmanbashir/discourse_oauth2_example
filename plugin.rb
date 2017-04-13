@@ -7,8 +7,8 @@ require 'auth/oauth2_authenticator'
 
 class ExistingSiteAuthenticator < ::Auth::OAuth2Authenticator
 
-  CLIENT_ID = 'ASDFASDF'
-  CLIENT_SECRET = 'ASDF1234'
+  CLIENT_ID = 'forum_z913P110O3SR0q49gAMF'
+  CLIENT_SECRET = 'sPB0ej5XrlU9jrrkcEzj'
 
   def register_middleware(omniauth)
     omniauth.provider :existing_site_oauth,
@@ -21,7 +21,7 @@ require 'omniauth-oauth2'
 class OmniAuth::Strategies::ExistingSiteOauth < OmniAuth::Strategies::OAuth2
 
   # NOTE VM has to be able to resolve
-  SITE_URL = 'https://my-existing-site.com'
+  SITE_URL = 'http://apm.epixelic.com'
 
   # Give your strategy a name.
   option :name, "existing_site_oauth"
@@ -51,11 +51,11 @@ class OmniAuth::Strategies::ExistingSiteOauth < OmniAuth::Strategies::OAuth2
   end
 
   def raw_info
-    @raw_info ||= access_token.get('/api/v1/users/me.json').parsed
+    @raw_info ||= access_token.get('me.json').parsed
   end
 end
 
-auth_provider :title => 'Click here to sign in.',
+auth_provider :title => 'IDENTIFIANT APM',
     :message => 'Log in via the main site (Make sure pop up blockers are not enbaled).',
     :frame_width => 920,
     :frame_height => 800,
@@ -64,7 +64,7 @@ auth_provider :title => 'Click here to sign in.',
 register_css <<CSS
 
 .btn-social.existing_site_oauth {
-  background: #dd4814;
+  background: #FF0000;
 }
 
 CSS
